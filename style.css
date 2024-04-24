@@ -2,21 +2,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
+  }
+  
+  body {
     height: 100vh;
-    background-color: #5f9ea0; 
+    background-color:rgb(168, 151, 130); /* Dark blue-gray background */
     display: grid;
     place-items: center;
-}
-
-.container {
+  }
+  
+  .container {
     height: 80%;
     width: 80%;
     max-width: 1200px; /* Adding a max-width for larger screens */
     padding: 2rem; /* Adding some padding for better spacing */
-    background-color: rgba(0, 0, 0, 0.3); /* A slightly more opaque background */
+    background-color: rgba(255, 255, 255, 0.404); /* A slightly opaque white background */
     border-radius: 20px; /* Increasing the border radius for a smoother look */
     overflow-y: auto;
     display: grid;
@@ -24,18 +24,34 @@ body {
     justify-content: center;
     align-items: start; /* Aligning cards to the top for a cleaner layout */
     gap: 2rem; /* Increasing the gap for better spacing */
-}
-
-.card {
-    width: 100%; 
+  }
+  
+  .card {
+    width: 100%;
     height: 300px; /* Increasing the height for better proportions */
-    background-color: rgba(255, 255, 255, 0.341); /* A slightly more opaque white background */
+    background:rgba(0, 0, 0, 0.333) ; /* Orange gradient background */
     border-radius: 15px; /* Increasing the border radius for a smoother look */
     padding: 1rem; /* Adding some padding for better spacing */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box-shadow for depth */
-    transition: transform 0.3s ease; /* Adding a transition for hover effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle box-shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding a transition for transform and box-shadow */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slightly scaling up the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increasing the box-shadow on hover */
+  }
+button{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
 }
-
-.card:hover {
-    transform: translateY(-5px); /* Slightly lifting the card on hover */
+button:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
+  
