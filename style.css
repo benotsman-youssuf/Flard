@@ -2,45 +2,43 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+body {
     height: 100vh;
-    background-color:rgb(168, 151, 130); /* Dark blue-gray background */
+    background-color: #0c1a2c; /* Dark charcoal background */
     display: grid;
     place-items: center;
-  }
-  
-  .container {
+}
+.container {
     height: 80%;
     width: 80%;
-    max-width: 1200px; /* Adding a max-width for larger screens */
-    padding: 2rem; /* Adding some padding for better spacing */
-    background-color: rgba(255, 255, 255, 0.404); /* A slightly opaque white background */
-    border-radius: 20px; /* Increasing the border radius for a smoother look */
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Very slight white background */
+    border-radius: 20px;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusting the minmax value for better card sizing */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
-    align-items: start; /* Aligning cards to the top for a cleaner layout */
-    gap: 2rem; /* Increasing the gap for better spacing */
-  }
-  
-  .card {
+    align-items: start;
+    gap: 2rem;
+    scrollbar-color: #0c1a2c transparent; /* Dark charcoal scrollbar */
+}   
+.card {
     width: 100%;
-    height: 300px; /* Increasing the height for better proportions */
-    background:rgba(0, 0, 0, 0.333) ; /* Orange gradient background */
-    border-radius: 15px; /* Increasing the border radius for a smoother look */
-    padding: 1rem; /* Adding some padding for better spacing */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle box-shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding a transition for transform and box-shadow */
-  }
-  
-  .card:hover {
-    transform: scale(1.05); /* Slightly scaling up the card on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increasing the box-shadow on hover */
-  }
-button{
+    height: 300px;
+    background: linear-gradient(45deg, #a0d2eb7a, #e1e5f287); /* Light blue-to-white gradient background */
+    border-radius: 15px;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.buttonSec {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -49,9 +47,46 @@ button{
     bottom: 20px;
     right: 20px;
     cursor: pointer;
+    background-color: #a0d2eb; /* Light blue button background */
+    color: #0c1a2c; /* Dark charcoal button text color */
 }
-button:hover{
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+.buttonSec:hover {
+    background-color: #e1e5f2; /* White button background on hover */
+    color: #0c1a2c; /* Dark charcoal button text color on hover */
 }
+/* -----------dialog------------- */
+/* Dialog Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; /* Adjust the width */
+    max-width: 80%;
+    height: 300px; /* Add a fixed height */
+    background-color: rgba(160, 210, 235, 0.9); /* Light blue background with transparency */
+    border-radius: 15px; /* Match the card border radius */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+  }
   
+  .popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: #0c1a2c; /* Match the dark charcoal color */
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #333;
+  }
