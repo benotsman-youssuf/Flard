@@ -47,46 +47,80 @@ body {
     bottom: 20px;
     right: 20px;
     cursor: pointer;
-    background-color: #a0d2eb; /* Light blue button background */
-    color: #0c1a2c; /* Dark charcoal button text color */
+    background-color: #a0d2eb; 
+    color: #0c1a2c; 
 }
 .buttonSec:hover {
-    background-color: #e1e5f2; /* White button background on hover */
-    color: #0c1a2c; /* Dark charcoal button text color on hover */
+    background-color: #e1e5f2; 
+    color: #0c1a2c; 
 }
-/* -----------dialog------------- */
-/* Dialog Styles */
+/* -------------------------------------------dialog----------------------------------------- */
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px; /* Adjust the width */
-    max-width: 80%;
-    height: 300px; /* Add a fixed height */
-    background-color: rgba(160, 210, 235, 0.9); /* Light blue background with transparency */
-    border-radius: 15px; /* Match the card border radius */
+    width: 50%;
+    max-width: 70%;
+    height: 300px; 
+    background-color: rgba(160, 210, 235, 0.9);
+    border-radius: 15px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     z-index: 1000;
-  }
-  
-  .popup::backdrop {
+}
+
+.popup::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-  }
-  
-  .close {
+}
+
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
     background-color: transparent;
     border: none;
     font-size: 18px;
-    color: #0c1a2c; /* Match the dark charcoal color */
+    color: #0c1a2c;
     cursor: pointer;
-  }
-  
-  .close:hover {
+}
+
+.close:hover {
     color: #333;
-  }
+}
+.sec{
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+/* style AddFlashcard button inside dialog */
+.AddFlashcard {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #a0d2eb; 
+    color: #0c1a2c; 
+}
+.AddFlashcard:hover {
+    background-color: #e1e5f2; 
+    color: #0c1a2c; 
+}
+/* style flash card container inside dialog */
+.flashcardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+    overflow-y: auto;
+    background: #0000002c;
+    border-radius: 15px;
+    width: 100%;
+    height: 75%;
+}
