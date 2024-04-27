@@ -60,35 +60,33 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    max-width: 70%;
-    height: 300px; 
+    width: 80%;
+    height: 75%; 
     background-color: rgba(160, 210, 235, 0.9);
     border-radius: 15px; 
+    border: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     z-index: 1000;
 }
-
 .popup::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(35px);
 }
-
 .close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
+    background-color: red;
     border: none;
-    font-size: 18px;
-    color: #0c1a2c;
+    font-size: 10px;
+    color: white;
     cursor: pointer;
 }
 
-.close:hover {
-    color: #333;
-}
 .sec{
     width: 100px;
     height: 100px;
@@ -117,10 +115,45 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
     align-items: start;
-    gap: 2rem;
+    gap: 1rem;
     overflow-y: auto;
     background: #0000002c;
     border-radius: 15px;
     width: 100%;
-    height: 75%;
+    height: 90%;
+    padding: 1rem;
+}
+.flash_card{
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(45deg, #a0d2eb7a, #e1e5f287); /* Light blue-to-white gradient background */
+    border-radius: 15px;
+    border: none;
+    /* padding: 1rem; */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    position: relative;
+    transform-style: preserve-3d;
+}
+.flash_card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+}
+.back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+    transform: rotateY(180deg);
 }
