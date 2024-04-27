@@ -34,25 +34,42 @@ button.addEventListener('click', () => {
             const flash_card = document.createElement('div');
             const front = document.createElement('div');
             const back = document.createElement('div');
-            const flip = document.createElement('button');
+            const frontflip = document.createElement('button');
+            const backflip = document.createElement('button');
+            const frontTextArea = document.createElement('textarea');
+            const backTextArea = document.createElement('textarea');            
 
             flash_card.classList.add('flash_card');
             front.classList.add('front');
             back.classList.add('back');
-            flip.classList.add('flip');
+            frontflip.classList.add('frontflip');
+            backflip.classList.add('backflip');
 
             flash_card.appendChild(front);
             flash_card.appendChild(back);
-            flash_card.appendChild(flip);
+            flash_card.appendChild(frontflip);
+            flash_card.appendChild(backflip);
             flashcardContainer.appendChild(flash_card);
+            
 
-            flip.textContent = 'Flip';
+            backflip.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
+            frontflip.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
             front.textContent = 'Front';
             back.textContent = 'Back';
+            backflip.style.display = 'none'
 
-            flip.addEventListener('click', () => {
-                flash_card.style.transform = '    transform: rotateY(180deg)';
-                
+            front.appendChild(frontTextArea);
+            back.appendChild(backTextArea);
+          
+            frontflip.addEventListener('click', () => {
+                flash_card.style.transform = 'rotateY(180deg)';
+                frontflip.style.display = 'none'
+                backflip.style.display = 'block'
+            });
+            backflip.addEventListener('click', () => {
+                flash_card.style.transform = 'rotateY(0deg)';
+                backflip.style.display = 'none'
+                frontflip.style.display = 'block'
             });
         });
 

@@ -126,12 +126,12 @@ body {
 .flash_card{
     width: 100%;
     height: 350px;
-    background: linear-gradient(45deg, #a0d2eb7a, #e1e5f287); /* Light blue-to-white gradient background */
+    /* background: linear-gradient(45deg, #a0d2eb7a, #e1e5f287); Light blue-to-white gradient background */
     border-radius: 15px;
     border: none;
     /* padding: 1rem; */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
 
     position: relative;
     transform-style: preserve-3d;
@@ -147,6 +147,8 @@ body {
     backface-visibility: hidden;
     display: grid;
     place-items: center;
+    background: linear-gradient(45deg, #a0d2eb, #e1e5f2c4); /* Light blue-to-white gradient background */
+    border-radius: 15px;
 }
 .back{
     position: absolute;
@@ -156,4 +158,52 @@ body {
     display: grid;
     place-items: center;
     transform: rotateY(180deg);
+    background-color: white;
+
+    background: linear-gradient(45deg, #a0d2eb, #e1e5f2c4); /* Light blue-to-white gradient background */
+    border-radius: 15px;
+}
+.frontflip{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(13, 255, 0); 
+    color: #0c1a2c; 
+}
+.backflip{
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(13, 255, 0); 
+    color: #0c1a2c; 
+}
+.fronttxt{
+    font-size: 1.5rem;
+    width: 300px;
+    height: 100px;
+    font-weight: bold;
+    color: #000000;
+}
+textarea {
+    width: 300px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    border-radius: 15px;
+    border: 2px solid #a0d2eb; /* Light blue border */
+    padding: 0.5rem;
+    background-color: #e1e5f2; /* Light blue background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    resize: none; /* Disable textarea resizing */
 }
