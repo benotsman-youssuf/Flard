@@ -5,6 +5,7 @@ const root = document.documentElement;
 const changeThemeButton = document.getElementById('changeThemeButton');
 
 
+
 button.addEventListener('click', () => {
     const card = document.createElement('button');
     card.classList.add('card');
@@ -40,12 +41,15 @@ button.addEventListener('click', () => {
             const back = document.createElement('div');
             const frontflip = document.createElement('button');
             const backflip = document.createElement('button');
-            const frontTextArea = document.createElement('textarea');
-            const backTextArea = document.createElement('textarea'); 
+
+            // const frontTextArea = document.createElement('div');
+            // const backTextArea = document.createElement('div'); 
+
             const removeflashcard = document.createElement('button');
             const saveFront = document.createElement('button');
             const saveBack = document.createElement('button');
-
+            const frontTextArea = document.createElement('div');
+            const backTextArea = document.createElement('div');
 
             
             removeflashcard.classList.add('removeflashcard');
@@ -56,27 +60,23 @@ button.addEventListener('click', () => {
             backflip.classList.add('backflip');
             saveBack.classList.add('saveBack');
             saveFront.classList.add('saveFront');
-
-
+            frontTextArea.className = 'frontTextArea';
+            backTextArea.className = 'backTextArea';
 
             flash_card.appendChild(front);
             flash_card.appendChild(back);
             flash_card.appendChild(frontflip);
             flash_card.appendChild(backflip);
-            
             flashcardContainer.appendChild(flash_card);
 
             
 
-            saveFront.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+            saveFront.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
             saveBack.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
             backflip.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
             frontflip.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
-            // front.textContent = 'Front';
-            // back.textContent = 'Back';
             backflip.style.display = 'none'
             removeflashcard.innerHTML = '<i class="fa-solid fa-trash "></i>';
-
             frontTextArea.placeholder = 'Enter Question here';
             backTextArea.placeholder = 'Enter Answer here';
 
@@ -86,10 +86,28 @@ button.addEventListener('click', () => {
             front.appendChild(removeflashcard);
             front.appendChild(saveFront);
             back.appendChild(saveBack);
-
+            removeflashcard.style.display = 'none';
 
             
-            removeflashcard.style.display = 'none';
+
+            let quillFront = new Quill(frontTextArea, {
+              modules: {
+                toolbar: [
+                  [{ header: [1, 2, false] }],
+                  ['bold','underline', 'image', { align: [] }],
+                  
+                ],},
+                placeholder: 'Write your Question...',
+              theme: 'snow', // or 'bubble'
+            });
+            
+
+            let quillBack = new Quill(backTextArea, {
+              theme: 'snow'  // or whatever theme you prefer
+
+            });
+            
+
 
             frontflip.addEventListener('click', () => {
                 flash_card.style.transform = 'rotateY(180deg)';
@@ -111,10 +129,18 @@ button.addEventListener('click', () => {
                 flash_card.remove();
             });
             saveFront.addEventListener('click', () => {
-                front.textContent = frontTextArea.value;
-            });
+              const Question = document.createElement('p');
+              Question.classList.add('Question');
+              front.appendChild(Question);
+              Question.innerHTML = quillFront.root.innerHTML;
+            })
             saveBack.addEventListener('click', () => {
-                back.textContent = backTextArea.value;
+              const Answer = document.createElement('p');
+              Answer.classList.add('Answer');
+              back.appendChild(Answer);
+              Answer.textContent = backTextArea.value;
+              backTextArea.style.display = 'none';
+              saveBack.style.display = 'none';
             });
         });
 

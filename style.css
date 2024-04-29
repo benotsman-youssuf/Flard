@@ -11,7 +11,6 @@
     --close-button-color: #FF6B6B;
     --textarea-background: rgba(255, 255, 255, 0.3);
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -266,12 +265,12 @@ body {
 
 .frontflip:hover,
 .backflip:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
-textarea {
-    width: 90%;
-    height: 60%;
+.backTextArea , .frontTextArea {
+    width: 100%;
+    max-height: 90%;
     font-size: 1.5rem;
     font-weight: bold;
     color: #1A535C;
@@ -279,6 +278,7 @@ textarea {
     border: none;
     padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.3);
+    overflow: scroll;
 }
 .saveBack,
 .saveFront {
@@ -298,4 +298,8 @@ textarea {
 .saveBack:hover , .saveFront:hover{
     transform: scale(1.1);
     box-shadow: var(--button-hover-shadow);
+}
+img{
+    width: 30%;
+    height: auto;
 }
