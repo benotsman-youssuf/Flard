@@ -72,7 +72,7 @@ button.addEventListener('click', () => {
             
 
             saveFront.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
-            saveBack.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
+            saveBack.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
             backflip.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
             frontflip.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
             backflip.style.display = 'none'
@@ -88,25 +88,10 @@ button.addEventListener('click', () => {
             back.appendChild(saveBack);
             removeflashcard.style.display = 'none';
 
-            
-
             let quillFront = new Quill(frontTextArea, {
-              modules: {
-                toolbar: [
-                  [{ header: [1, 2, false] }],
-                  ['bold','underline', 'image', { align: [] }],
-                  
-                ],},
-                placeholder: 'Write your Question...',
-              theme: 'snow', // or 'bubble'
+              placeholder: 'Compose an epic...',
+              theme: 'bubble',
             });
-            
-
-            let quillBack = new Quill(backTextArea, {
-              theme: 'snow'  // or whatever theme you prefer
-
-            });
-            
 
 
             frontflip.addEventListener('click', () => {
