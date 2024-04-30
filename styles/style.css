@@ -267,6 +267,10 @@ body {
 .backflip:hover {
     transform: scale(1.05);
 }
+.front , .back {
+    overflow-x: scroll;
+}
+
 
 .backTextArea , .frontTextArea {
     width: 100%;
@@ -302,4 +306,14 @@ body {
 img{
     width: 30%;
     height: auto;
+}
+
+.ql-tooltip{
+    background: red;
+    margin-left: 5%;
+}
+p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1A535C;
 }

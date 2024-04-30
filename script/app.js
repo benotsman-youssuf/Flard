@@ -89,7 +89,29 @@ button.addEventListener('click', () => {
             removeflashcard.style.display = 'none';
 
             let quillFront = new Quill(frontTextArea, {
-              placeholder: 'Compose an epic...',
+              modules: {
+                toolbar: [
+                  [{ header: '1' }], // Allows different heading levels
+                  ['bold','underline'], // Provides options for bold, italic, underline, and strike-through
+                  [{ 'align': [] }], // Allows users to choose text alignment
+                  ['code-block'], // Allows users to insert code blocks for programming-related content
+
+                ]
+              },
+              placeholder: 'write your Quetion...',
+              theme: 'bubble',
+            });
+            let quillBack = new Quill(backTextArea, {
+              modules: {
+                toolbar: [
+                  [{ header: '1' }], // Allows different heading levels
+                  ['bold','underline'], // Provides options for bold, italic, underline, and strike-through
+                  [{ 'align': [] }], // Allows users to choose text alignment
+                  ['code-block'], // Allows users to insert code blocks for programming-related content
+
+                ]
+              },
+              placeholder: 'Write your Answer...',
               theme: 'bubble',
             });
 
@@ -117,15 +139,15 @@ button.addEventListener('click', () => {
               const Question = document.createElement('p');
               Question.classList.add('Question');
               front.appendChild(Question);
+              frontTextArea.style.display = 'none';
               Question.innerHTML = quillFront.root.innerHTML;
             })
             saveBack.addEventListener('click', () => {
               const Answer = document.createElement('p');
               Answer.classList.add('Answer');
               back.appendChild(Answer);
-              Answer.textContent = backTextArea.value;
               backTextArea.style.display = 'none';
-              saveBack.style.display = 'none';
+              Answer.innerHTML = quillBack.root.innerHTML;
             });
         });
 
