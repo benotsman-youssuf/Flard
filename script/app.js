@@ -3,8 +3,7 @@ const button = document.querySelector('.buttonSec');
 const dialog = document.querySelector('.popup');
 const root = document.documentElement;
 const changeThemeButton = document.getElementById('changeThemeButton');
-
-
+const answerp = document.getElementsByClassName('Answer')
 
 button.addEventListener('click', () => {
     const card = document.createElement('button');
@@ -48,6 +47,10 @@ button.addEventListener('click', () => {
             const removeflashcard = document.createElement('button');
             const saveFront = document.createElement('button');
             const saveBack = document.createElement('button');
+
+            const editFront = document.createElement('button')
+            const editBack = document.createElement('button')
+
             const frontTextArea = document.createElement('div');
             const backTextArea = document.createElement('div');
 
@@ -59,6 +62,9 @@ button.addEventListener('click', () => {
             frontflip.classList.add('frontflip');
             backflip.classList.add('backflip');
             saveBack.classList.add('saveBack');
+            editFront.classList.add('editFront');
+            editBack.classList.add('editBack');
+
             saveFront.classList.add('saveFront');
             frontTextArea.className = 'frontTextArea';
             backTextArea.className = 'backTextArea';
@@ -73,6 +79,8 @@ button.addEventListener('click', () => {
 
             saveFront.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
             saveBack.innerHTML = '<i class="fa-solid fa-bookmark"></i>'
+            editBack.innerHTML = '<i class="fa-solid fa-edit"></i>';
+            editFront.innerHTML = '<i class="fa-solid fa-edit"></i>';
             backflip.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
             frontflip.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
             backflip.style.display = 'none'
@@ -86,14 +94,17 @@ button.addEventListener('click', () => {
             front.appendChild(removeflashcard);
             front.appendChild(saveFront);
             back.appendChild(saveBack);
+            front.appendChild(editFront);
+            back.appendChild(editBack);
             removeflashcard.style.display = 'none';
+            editBack.style.display = 'none';
+            editFront.style.display = 'none';
 
             let quillFront = new Quill(frontTextArea, {
               modules: {
                 toolbar: [
                   [{ header: '1' }], // Allows different heading levels
                   ['bold','underline'], // Provides options for bold, italic, underline, and strike-through
-                  [{ 'align': [] }], // Allows users to choose text alignment
                   ['code-block'], // Allows users to insert code blocks for programming-related content
 
                 ]
@@ -141,6 +152,9 @@ button.addEventListener('click', () => {
               front.appendChild(Question);
               frontTextArea.style.display = 'none';
               Question.innerHTML = quillFront.root.innerHTML;
+
+              editFront.style.display = 'block';
+              saveFront.style.display = 'none';
             })
             saveBack.addEventListener('click', () => {
               const Answer = document.createElement('p');
@@ -148,7 +162,22 @@ button.addEventListener('click', () => {
               back.appendChild(Answer);
               backTextArea.style.display = 'none';
               Answer.innerHTML = quillBack.root.innerHTML;
+
+              editBack.style.display = 'block';
+              saveBack.style.display = 'none'
             });
+            editFront.addEventListener('click' , ()=>{
+              frontTextArea.style.display = 'block';
+              saveFront.style.display = 'block';
+              editFront.style.display = 'none';
+            });
+            editBack.addEventListener('click', () => {
+              backTextArea.style.display = 'block';
+              saveBack.style.display = 'block';
+              editBack.style.display = 'none';
+              
+          });
+          
         });
 
     });
