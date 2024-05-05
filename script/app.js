@@ -5,8 +5,11 @@ const root = document.documentElement;
 const changeThemeButton = document.getElementById('changeThemeButton');
 const answerp = document.getElementsByClassName('Answer')
 
+
+
 button.addEventListener('click', () => {
     const card = document.createElement('button');
+    
     card.classList.add('card');
     container.appendChild(card);
     
@@ -183,13 +186,17 @@ button.addEventListener('click', () => {
     });
 });
 
-function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 changeThemeButton.addEventListener("click", () => {
+  if (changeThemeButton.innerHTML === '<i class="fa-solid fa-brightness fa-2xl"></i>') {
+    changeThemeButton.innerHTML = '<i class="fa-solid fa-moon fa-2xl"></i>  ';
+  }
+  else {
+    changeThemeButton.innerHTML = '<i class="fa-solid fa-brightness fa-2xl"></i>';
+  }
+
+  const computedStyle = getComputedStyle(root);
   // Get the current theme
-  const currentTheme = root.style.getPropertyValue("--primary-color");
+  const currentTheme = computedStyle.getPropertyValue("--primary-color").trim();
 
   // Check the current theme and switch to the opposite
   if (currentTheme === "#1A535C") {
@@ -235,4 +242,10 @@ changeThemeButton.addEventListener("click", () => {
     root.style.setProperty("--close-button-color", "#FF6B6B");
     root.style.setProperty("--textarea-background", "rgba(255, 255, 255, 0.3)");
   }
+
 });
+
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
