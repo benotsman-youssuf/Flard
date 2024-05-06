@@ -13,7 +13,14 @@
     --close-button-color: #FF6B6B;
     --textarea-background: rgba(255, 255, 255, 0.3);
 }
-
+#particles-js{
+    position: fixed;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
 * {
     box-sizing: border-box;
     margin: 0;
