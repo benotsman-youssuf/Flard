@@ -286,14 +286,14 @@ document.addEventListener('DOMContentLoaded', function () {
               type: 'circle',
               stroke: {
                   width: 0,
-                  color: '#000000'
+                  color: '##000000'
               },
               polygon: {
                   nb_sides: 5
               }
           },
           opacity: {
-              value: 1,
+              value: 0.2,
               random: false,
               anim: {
                   enable: false,
@@ -315,13 +315,13 @@ document.addEventListener('DOMContentLoaded', function () {
           line_linked: {
               enable: true,
               distance: 150,
-              color: '#ffffff',
+              color: '#FFD3B4',
               opacity: 0.4,
               width: 1
           },
           move: {
               enable: true,
-              speed: 6,
+              speed: 1.5, // Decrease the speed here
               direction: 'none',
               random: false,
               straight: false,
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   size: 40,
                   duration: 2,
                   opacity: 8,
-                  speed: 3
+                  speed: 3,
               },
               repulse: {
                   distance: 200,
