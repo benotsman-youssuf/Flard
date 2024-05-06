@@ -28,7 +28,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 h1 {
-    font-family: 'Great Vibes';
+    font-family: "Great Vibes", cursive;
     font-size: 10rem;
     margin: 2rem;
     color:var( --button-color);
