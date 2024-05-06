@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 :root {
     --primary-color: #1A535C; /* Deep Teal */
     --secondary-color: #4ECDC4; /* Turquoise */
@@ -11,6 +12,7 @@
     --close-button-color: #FF6B6B;
     --textarea-background: rgba(255, 255, 255, 0.3);
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -24,9 +26,17 @@ body {
     place-items: center;
     font-family: 'Montserrat', sans-serif;
 }
-
+h1 {
+    font-family: 'Great Vibes';
+    font-size: 10rem;
+    margin: 2rem;
+    color:var( --button-color);
+    margin-bottom: 2rem;
+    text-align: center;  
+    font-weight: 100;
+}
 .container {
-    height:90%;
+    height: 90%;
     width: 90%;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.1); /* Very slight white background */
@@ -51,6 +61,12 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+
+    font-family: "Poetsen One", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1A535C;
+    max-width: 100%;
 }
 
 .card:hover {
@@ -76,8 +92,8 @@ body {
 }
 
 .buttonSec {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: none;
     position: absolute;
@@ -89,7 +105,8 @@ body {
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-#changeThemeButton{
+
+#changeThemeButton {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -110,12 +127,13 @@ body {
 }
 
 /* -------------------------------------------dialog----------------------------------------- */
+
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 90%;
     height: 75%;
     background-color: var(--popup-background);
     border-radius: 15px;
@@ -174,7 +192,7 @@ body {
 /* style flash card container inside dialog */
 .flashcardContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     justify-content: center;
     align-items: start;
     gap: 1rem;
@@ -204,7 +222,7 @@ body {
 
 .flash_card {
     width: 100%;
-    height: 350px;
+    height: 400px;
     border-radius: 15px;
     border: none;
     box-shadow: var(--card-shadow);
@@ -265,12 +283,14 @@ body {
 .backflip:hover {
     transform: scale(1.05);
 }
-.front , .back {
+
+.front,
+.back {
     overflow-x: scroll;
 }
 
-
-.backTextArea , .frontTextArea {
+.backTextArea,
+.frontTextArea {
     width: 100%;
     max-height: 90%;
     font-size: 1.5rem;
@@ -282,7 +302,11 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     overflow: scroll;
 }
-.saveBack, .saveFront , .editFront , .editBack{
+
+.saveBack,
+.saveFront,
+.editFront,
+.editBack {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -297,21 +321,71 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.saveBack:hover , .saveFront:hover , .editBack:hover , .editFront:hover{
+.saveBack:hover,
+.saveFront:hover,
+.editBack:hover,
+.editFront:hover {
     transform: scale(1.1);
     box-shadow: var(--button-hover-shadow);
 }
-img{
+
+img {
     width: 30%;
     height: auto;
 }
 
-.ql-tooltip{
+.ql-tooltip {
     background: red;
-    margin-left: 5%;
+    margin-left: 15%;
 }
-p{
+
+p {
     font-size: 1.5rem;
     font-weight: bold;
     color: #1A535C;
+}
+.titel{
+    font-family: "Poetsen One", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1A535C;
+    max-width: 100%;
+}
+textarea {
+    width: 100%;
+    max-height: 90%;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    border-radius: 10px;
+    border: none;
+    padding: 0.8rem;
+    background-color: var(--textarea-background);
+    resize: none;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.SectionP{
+    width:50px;
+    height: 40px;
+    background: #000;
+}
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 4rem;
+    }
+    .container , .popup {
+        width: 100%;
+        height: 100%;
+    }
+
+    .flashcardContainer{
+        background:transparent;
+        height: 92%;
+        overflow-x: hidden;
+    }
 }
