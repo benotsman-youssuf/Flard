@@ -161,13 +161,12 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 75%;
+    height: 80%;
     background-color: var(--popup-background);
     border: none;
-    box-shadow: var(--card-shadow);
+    border-radius: 15px;
     padding: 20px;
     z-index: 1000;
-    backdrop-filter: blur(10px);
 }
 
 .popup::backdrop {
@@ -410,7 +409,7 @@ textarea:focus {
     }
     .popup{
         overflow: hidden;
-
+        border-radius: 0px;
     }
     .popupContent{
         background:transparent;
