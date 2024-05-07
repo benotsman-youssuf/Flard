@@ -21,6 +21,9 @@ button.addEventListener('click', () => {
 
   // Event listener for card click
   card.addEventListener('click', () => {
+    const existingDialog = card.querySelector('dialog');
+    if (!existingDialog) {
+
     // Create a popup dialog
     const popup = document.createElement('dialog');
     const close = document.createElement('button');
@@ -45,7 +48,9 @@ button.addEventListener('click', () => {
     popup.classList.add('popup');
     AddFlashcard.classList.add('AddFlashcard');
 
-    // Show the dialog
+    // Register dialog element with dialogPolyfill
+    dialogPolyfill.registerDialog(popup);
+    //  the dialog
     popup.showModal();
 
     // Event listener for close button click
@@ -222,6 +227,7 @@ button.addEventListener('click', () => {
         Answer.innerHTML = '';
       });
     });
+  }
   });
 });
 
