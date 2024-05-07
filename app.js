@@ -21,14 +21,12 @@ button.addEventListener('click', () => {
 
   // Event listener for card click
   card.addEventListener('click', () => {
-    const existingDialog = card.querySelector('dialog');
-    if (!existingDialog) {
 
     // Create a popup dialog
-    const popup = document.createElement('dialog');
+    const popup = document.createElement('div');
+    const popupContent = document.createElement('div');
     const close = document.createElement('button');
     const AddFlashcard = document.createElement('button');
-    const flashcardContainer = document.createElement('div');
     const SectionTitle = document.createElement('textarea');
 
     // Set up popup dialog elements
@@ -36,32 +34,25 @@ button.addEventListener('click', () => {
     close.innerHTML = 'X';
     SectionTitle.placeholder = 'Enter Section Title';
 
-    popup.appendChild(flashcardContainer);
+    container.appendChild(popup);
+    popup.appendChild(popupContent);
     popup.appendChild(AddFlashcard);
     popup.appendChild(close);
     popup.appendChild(SectionTitle);
-    card.appendChild(popup);
+    // card.appendChild(popup);
 
     // Add classes to elements
-    flashcardContainer.classList.add('flashcardContainer');
+    popupContent.classList.add('popupContent');
     close.classList.add('close');
     popup.classList.add('popup');
     AddFlashcard.classList.add('AddFlashcard');
 
-    // Register dialog element with dialogPolyfill
-    dialogPolyfill.registerDialog(popup);
-    //  the dialog
-    popup.showModal();
-
+    popup.style.display = 'block';
+    SectionTitle.innerHTML = card.innerHTML;
     // Event listener for close button click
     close.addEventListener('click', () => {
-      // Close the dialog
-      popup.close();
-
-      // Set card innerHTML to section title value
+      popup.style.display = 'none';
       card.innerHTML = SectionTitle.value;
-
-      // If card innerHTML is empty, set it to 'Section'
       if (card.innerHTML === '') {
         card.innerHTML = 'Section';
       }
@@ -102,7 +93,7 @@ button.addEventListener('click', () => {
       flash_card.appendChild(back);
       flash_card.appendChild(frontflip);
       flash_card.appendChild(backflip);
-      flashcardContainer.appendChild(flash_card);
+      popupContent.appendChild(flash_card);
 
       // Set innerHTML and placeholders for buttons and text areas
       saveFront.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
@@ -227,7 +218,7 @@ button.addEventListener('click', () => {
         Answer.innerHTML = '';
       });
     });
-  }
+  
   });
 });
 

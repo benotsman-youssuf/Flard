@@ -163,7 +163,6 @@ h1 {
     width: 90%;
     height: 75%;
     background-color: var(--popup-background);
-    border-radius: 15px;
     border: none;
     box-shadow: var(--card-shadow);
     padding: 20px;
@@ -217,7 +216,7 @@ h1 {
 }
 
 /* style flash card container inside dialog */
-.flashcardContainer {
+.popupContent {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     justify-content: center;
@@ -413,7 +412,7 @@ textarea:focus {
         overflow: hidden;
 
     }
-    .flashcardContainer{
+    .popupContent{
         background:transparent;
         height: 90%;
         width: 100%;
