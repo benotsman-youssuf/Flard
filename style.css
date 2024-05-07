@@ -423,4 +423,9 @@ textarea:focus {
         width: 60%;
         margin-top: 3%;
     }
+    .close{
+        height: 30px;
+        width: 50px;
+        font-size: 1.5rem;
+    }
 }
