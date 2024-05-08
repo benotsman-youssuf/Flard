@@ -27,17 +27,21 @@ button.addEventListener('click', () => {
     const popupContent = document.createElement('div');
     const close = document.createElement('button');
     const AddFlashcard = document.createElement('button');
+    const rmsec = document.createElement('button');
     const SectionTitle = document.createElement('textarea');
+  
 
     // Set up popup dialog elements
     AddFlashcard.innerHTML = '<i class="fa-solid fa-cards-blank fa-2xl"></i>';
     close.innerHTML = 'X';
+    rmsec.innerHTML = '<i class="fa-solid fa-trash fa-2xl"></i>';
     SectionTitle.placeholder = 'Enter Section Title';
 
     container.appendChild(popup);
     popup.appendChild(popupContent);
     popup.appendChild(AddFlashcard);
     popup.appendChild(close);
+    popup.appendChild(rmsec);
     popup.appendChild(SectionTitle);
     // card.appendChild(popup);
 
@@ -46,6 +50,7 @@ button.addEventListener('click', () => {
     close.classList.add('close');
     popup.classList.add('popup');
     AddFlashcard.classList.add('AddFlashcard');
+    rmsec.classList.add('rmsec');
 
     popup.style.display = 'block';
     SectionTitle.innerHTML = card.innerHTML;
@@ -64,7 +69,11 @@ button.addEventListener('click', () => {
         card.innerHTML = 'Section';
       }
     });
-
+    rmsec.addEventListener('click', () => {
+      popup.remove();
+      card.remove();
+      button.style.display = 'block';
+    });
     // Event listener for AddFlashcard button click
     AddFlashcard.addEventListener('click', () => {
       // Create flashcard elements

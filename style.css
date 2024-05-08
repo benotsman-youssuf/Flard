@@ -32,8 +32,9 @@ body {
     display: grid;
     place-items: center;
     font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
 }
-h1 {
+h1{
     font-family: "Great Vibes", cursive;
     font-size: 10rem;
     margin: 2rem;
@@ -158,13 +159,29 @@ h1 {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(18.1px);
     -webkit-backdrop-filter: blur(18.1px);
+    transition: transform 0.3s ease-in-out;
+
 }
 .close {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    background-color: var(--close-button-color);
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.rmsec{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
     border-radius: 30px;
     background-color: var(--close-button-color);
     border: none;
@@ -391,8 +408,8 @@ textarea:focus {
         margin-top: 3%;
     }
     .close {
-        height: 30px;
-        width: 50px;
+        height: 35px;
+        width: 35px;
         font-size: 1.5rem;
     }
 }
