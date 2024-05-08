@@ -12,13 +12,16 @@ const brand = document.getElementsByClassName('brand');
 const Question = document.createElement('p');
 const Answer = document.createElement('p');
 
+let count = 1;
 // Event listener for button click
 button.addEventListener('click', () => {
   // Create a card element
   const card = document.createElement('button');
   card.classList.add('card');
   container.appendChild(card);
-
+  //default name the section 
+  var DefaultCardName = 'Section ' + count++;
+  card.innerHTML = DefaultCardName;
   // Event listener for card click
   card.addEventListener('click', () => {
 
@@ -70,6 +73,9 @@ button.addEventListener('click', () => {
       }
     });
     rmsec.addEventListener('click', () => {
+      if (card.innerHTML === DefaultCardName) {
+        count -= 1;
+      }
       popup.remove();
       card.remove();
       button.style.display = 'block';
