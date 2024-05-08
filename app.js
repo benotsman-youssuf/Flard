@@ -49,10 +49,17 @@ button.addEventListener('click', () => {
 
     popup.style.display = 'block';
     SectionTitle.innerHTML = card.innerHTML;
+
+    button.style.display = 'none';
+    card.style.display = 'none';
     // Event listener for close button click
     close.addEventListener('click', () => {
       popup.style.display = 'none';
       card.innerHTML = SectionTitle.value;
+
+      button.style.display = 'block';
+      card.style.display = 'block';
+
       if (card.innerHTML === '') {
         card.innerHTML = 'Section';
       }
@@ -244,7 +251,7 @@ changeThemeButton.addEventListener('click', () => {
     root.style.setProperty('--card-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.6)');
     root.style.setProperty('--button-color', '#C18C5D');
     root.style.setProperty('--button-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.6)');
-    root.style.setProperty('--popup-background', 'rgba(30, 30, 30, 0.9)');
+    root.style.setProperty('--popup-background', 'rgba(0, 0, 0, 0.9)');
     root.style.setProperty('--close-button-color', '#C14040');
     root.style.setProperty('--textarea-background', 'rgba(50, 50, 50, 0.3)');
   } else {
