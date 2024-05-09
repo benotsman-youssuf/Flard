@@ -9,8 +9,7 @@ const brand = document.getElementsByClassName('brand');
 
 
 // Create elements for question and answer
-const Question = document.createElement('p');
-const Answer = document.createElement('p');
+
 
 let count = 1;
 // Event listener for button click
@@ -196,14 +195,15 @@ button.addEventListener('click', () => {
         flash_card.remove();
       });
 
+      let Question , Answer;
       // Event listener for saveFront button click
       saveFront.addEventListener('click', () => {
         if (quillFront.root.innerHTML.trim() === '') {
           Answer.innerHTML = 'Please save the Question first';
         }
-
-        Question.classList.add('Question');
+        Question = document.createElement('p'); 
         front.appendChild(Question);
+        Question.classList.add('Question');
         frontTextArea.style.display = 'none';
         Question.innerHTML = quillFront.root.innerHTML;
         editFront.style.display = 'block';
@@ -215,7 +215,7 @@ button.addEventListener('click', () => {
         if (Question.innerHTML.trim() === '') {
           Answer.innerHTML = 'Please save the Question first';
         }
-
+        Answer = document.createElement('p');
         Answer.classList.add('Answer');
         back.appendChild(Answer);
         backTextArea.style.display = 'none';
@@ -229,7 +229,7 @@ button.addEventListener('click', () => {
         frontTextArea.style.display = 'block';
         saveFront.style.display = 'block';
         editFront.style.display = 'none';
-        Question.innerHTML = '';
+        Question.remove();
       });
 
       // Event listener for editBack button click
@@ -237,7 +237,7 @@ button.addEventListener('click', () => {
         backTextArea.style.display = 'block';
         saveBack.style.display = 'block';
         editBack.style.display = 'none';
-        Answer.innerHTML = '';
+        Answer.remove();
       });
     });
   
