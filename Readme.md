@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center;">
 <img src="./img/flash-card.png" style="width:200px; height:200px;"></img>
-<h1 style="font-size: 13rem; color: #FFD3B4; text-align: center;">Flard</h1>
+<h1 style="font-size: 13rem;">Flard</h1>
 </div>
 <h2 style="font-family: 'Arial', sans-serif; text-align: center;">Flard is a modern and visually appealing flashcard application built with HTML, CSS, and JavaScript. It provides users with an interactive and engaging platform to create, manage, and study flashcards efficiently. 🌟📖</h2>
 <img src="./img/image.png" style="border-radius:20px;"></img>
