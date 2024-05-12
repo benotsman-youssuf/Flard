@@ -80,17 +80,27 @@
             line-height: 1.6;
             font-size: 1.1rem;
         }
+        
+        .github {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
 
-        /* img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            box-shadow: var(--card-hover-shadow);
-            border-radius: 20px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        } */
+        .github a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .github span {
+            font-size: 2rem;
+            margin-left: 10px;
+            font-weight: 800;
+        }
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -128,7 +138,6 @@
             <li>In the popup dialog, enter a title for the section in the provided text area.</li>
             <li>Click the <i class="fa-solid fa-x fa-xl"></i> button to close the popup dialog. The card will now display the section title.</li>
         </ol>
-        <img src="create-section.png" alt="Creating a New Section">
 
         <h2>Adding Flashcards</h2>
         <ol>
@@ -165,6 +174,9 @@
             <li>Click the <i class="fa-solid fa-moon fa-xl"></i> button in the top-left corner of the screen to toggle between light and dark themes.</li>
         </ol>
         <!-- <img src="change-theme.png" alt="Changing the Theme"> -->
+    </div>
+    <div class="github">
+        <a href="https://github.com/benotsman-youssuf/Flard" target="_blank"><i class="fab fa-github fa-3x"></i><span>Github</span></a>
     </div>
 </body>
 </html>

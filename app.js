@@ -5,7 +5,7 @@ const dialog = document.querySelector('.popup');
 const root = document.documentElement;
 const changeThemeButton = document.getElementById('changeThemeButton');
 const brand = document.getElementsByClassName('brand');
-
+const quillBar = document.getElementsByClassName('ql-toolbar');
 
 
 // Create elements for question and answer
@@ -145,7 +145,8 @@ button.addEventListener('click', () => {
         modules: {
           toolbar: [
             [{ header: '1' }],
-            ['bold', 'underline'],
+            ['underline'],
+            [{ 'align': [] }],
             ['code-block'],
           ],
         },
@@ -157,15 +158,14 @@ button.addEventListener('click', () => {
         modules: {
           toolbar: [
             [{ header: '1' }],
-            ['bold', 'underline'],
+            ['underline'],
             [{ 'align': [] }],
-            ['code-block'],
+            ['code-block']
           ],
         },
         placeholder: 'Write your Answer...',
-        theme: 'bubble',
+        theme: 'bubble'
       });
-
       // Event listener for frontflip button click
       frontflip.addEventListener('click', () => {
         flash_card.style.transform = 'rotateY(180deg)';

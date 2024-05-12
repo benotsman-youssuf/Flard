@@ -34,7 +34,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
 }
-h1{
+#brand{
     font-family: "Great Vibes", cursive;
     font-size: 10rem;
     margin: 2rem;
@@ -228,7 +228,7 @@ h1{
     height: 30px;
     border-radius: 50%;
     border: none;
-    position: absolute;
+    position: fixed;
     top: 5px;
     left: 5px;
     cursor: pointer;
@@ -318,7 +318,7 @@ h1{
     height: 40px;
     border-radius: 50%;
     border: none;
-    position: absolute;
+    position:fixed;
     top: 10px;
     right: 10px;
     cursor: pointer;
@@ -335,17 +335,20 @@ h1{
     box-shadow: var(--button-hover-shadow);
 }
 img {
-    width: 30%;
+    width: 20%;
     height: auto;
+    border-radius: 15px;
+    margin: 1rem;
 }
 .ql-tooltip {
     background: red;
     margin-left: 15%;
 }
 p {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: "Poetsen One", sans-serif;
+    font-size: 2rem;
     color: #1A535C;
+    max-width: 100%;
 }
 .titel {
     font-family: "Poetsen One", sans-serif;
@@ -378,7 +381,7 @@ textarea:focus {
     background: #000;
 }
 @media screen and (max-width: 768px) {
-    h1 {
+    #brand {
         font-size: 4rem;
     }
     .card {
