@@ -107,19 +107,61 @@ body {
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.design {
+    position: absolute;
+    border-radius: 50px;
+    top: 20px;
+    left: 20px;
+    background: #0000003d;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    transition: height 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.design:hover {
+    height: 280px;
+}
 #changeThemeButton {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: none;
-    position: absolute;
-    top: 20px;
-    left: 20px;
     cursor: pointer;
     background-color: var(--button-color);
     color: var(--primary-color);
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.theme {
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    top: 50px;
+    opacity: 0;
+}
+.design:hover .theme {
+    opacity: 1;
+}
+.design:hover .theme.st {
+    background-color: blue;
+    top: 5px;
+}   
+.design:hover .theme.nd {
+    background-color: green;
+    top: 10px;
+}
+.design:hover .theme.rd {
+    background-color: purple;
+    top: 15px;
+}
+.design:hover .theme.th {
+    background-color: orange;
+    top: 20px;
 }
 #help {
     width: 50px;
@@ -136,10 +178,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .buttonSec:hover {
-    transform: scale(1.1);
-    box-shadow: var(--button-hover-shadow);
-}
-#changeThemeButton:hover {
     transform: scale(1.1);
     box-shadow: var(--button-hover-shadow);
 }
