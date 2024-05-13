@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #333333; /* Dark Gray */
+    --secondary-color: #CCCCCC; /* Light Gray */
+    --card-gradient: linear-gradient(45deg, #F5F5F5, #E0E0E0); /* Light Gray to Slightly Darker Gray gradient */
+    --background-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --button-color: #E0E0E0; /* Slightly Darker Gray */
+    --button-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --popup-background: rgba(255, 255, 255, 0.9);
+    --close-button-color: #FF5722; /* Bright Red */
+    --textarea-background: rgba(255, 255, 255, 0.7);
+}

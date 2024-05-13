@@ -244,45 +244,6 @@ button.addEventListener('click', () => {
   });
 });
 
-// Event listener for changeThemeButton click
-changeThemeButton.addEventListener('click', () => {
-  // Toggle theme button icon
-  if (changeThemeButton.innerHTML === '<i class="fa-solid fa-brightness fa-2xl"></i>') {
-    changeThemeButton.innerHTML = '<i class="fa-solid fa-moon fa-2xl"></i>  ';
-  } else {
-    changeThemeButton.innerHTML = '<i class="fa-solid fa-brightness fa-2xl"></i>';
-  }
-
-  // Get current theme color
-  const computedStyle = getComputedStyle(root);
-  const currentTheme = computedStyle.getPropertyValue('--primary-color').trim();
-
-  // Set new theme colors
-  if (currentTheme === '#1A535C') {
-    root.style.setProperty('--primary-color', '#0F4C5C');
-    root.style.setProperty('--secondary-color', '#31B0A4');
-    root.style.setProperty('--card-gradient', 'linear-gradient(45deg, #B36A5E, #C18C5D)');
-    root.style.setProperty('--card-shadow', '0 2px 10px rgba(0, 0, 0, 0.4)');
-    root.style.setProperty('--card-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.6)');
-    root.style.setProperty('--button-color', '#C18C5D');
-    root.style.setProperty('--button-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.6)');
-    root.style.setProperty('--popup-background', 'rgba(0, 0, 0, 0.9)');
-    root.style.setProperty('--close-button-color', '#C14040');
-    root.style.setProperty('--textarea-background', 'rgba(50, 50, 50, 0.3)');
-  } else {
-    root.style.setProperty('--primary-color', '#1A535C');
-    root.style.setProperty('--secondary-color', '#4ECDC4');
-    root.style.setProperty('--card-gradient', 'linear-gradient(45deg, #FF9A8B, #FFD3B4)');
-    root.style.setProperty('--card-shadow', '0 2px 10px rgba(0, 0, 0, 0.2)');
-    root.style.setProperty('--card-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.3)');
-    root.style.setProperty('--button-color', '#FFD3B4');
-    root.style.setProperty('--button-hover-shadow', '0 8px 16px rgba(0, 0, 0, 0.3)');
-    root.style.setProperty('--popup-background', 'rgba(255, 255, 255, 0.9)');
-    root.style.setProperty('--close-button-color', '#FF6B6B');
-    root.style.setProperty('--textarea-background', 'rgba(255, 255, 255, 0.3)');
-  }
-});
-
 // Function to generate random number
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -334,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
           line_linked: {
               enable: true,
               distance: 150,
-              color: '#FFD3B4',
+              color: '#ffffff',
               opacity: 0.4,
               width: 1
           },

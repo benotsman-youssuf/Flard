@@ -148,19 +148,19 @@ body {
     opacity: 1;
 }
 .design:hover .theme.st {
-    background-color: blue;
+    background-color: pink;
     top: 5px;
 }   
 .design:hover .theme.nd {
-    background-color: green;
+    background-color: grey;
     top: 10px;
 }
 .design:hover .theme.rd {
-    background-color: purple;
+    background-color: yellow;
     top: 15px;
 }
 .design:hover .theme.th {
-    background-color: orange;
+    background-color: brown;
     top: 20px;
 }
 #help {
