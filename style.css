@@ -149,19 +149,19 @@ body {
     opacity: 1;
 }
 .design:hover .theme.st {
-    background-color: pink;
+    background: linear-gradient(#E68AAC, #F5C2D8);
     top: 5px;
 }   
 .design:hover .theme.nd {
-    background-color: grey;
+    background:linear-gradient(#333333, #CCCCCC);
     top: 10px;
 }
 .design:hover .theme.rd {
-    background-color: yellow;
+    background:linear-gradient(#2ECC71, #3498DB);
     top: 15px;
 }
 .design:hover .theme.th {
-    background-color: brown;
+    background:linear-gradient(#1A535C, #4ECDC4);
     top: 20px;
 }
 #help {

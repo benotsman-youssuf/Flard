@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
               }
           },
           color: {
-              value: '#FFD3B4'
+              value: '#ffffff'
           },
           shape: {
               type: 'circle',
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           move: {
               enable: true,
-              speed: 1.5, // Decrease the speed here
+              speed: 0.8, // Decrease the speed here
               direction: 'none',
               random: false,
               straight: false,
