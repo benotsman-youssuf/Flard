@@ -148,6 +148,7 @@ button.addEventListener('click', () => {
             ['underline'],
             [{ 'align': [] }],
             ['code-block'],
+            ['image'],
           ],
         },
         placeholder: 'write your Question...',
