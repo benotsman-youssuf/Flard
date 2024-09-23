@@ -3,35 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flard</title>
-    <link rel="icon" type="image/x-icon" href="./img/flash-card.png">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
-    <link rel="stylesheet" href="./quillJS/quill.bubble.css">
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <title>Flard - Modern Flashcard Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1A535C;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFD3B4;
+            --text-color: #333;
+            --background-color: #E0F2F1;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: var(--background-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            text-align: center;
+            padding: 150px 0 100px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            background-color: var(--background-color);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .features h2.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .feature-item:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        .feature-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .feature-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(52, 152, 219, 0.2);
+            z-index: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .feature-item p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .feature-cta {
+            align-self: flex-start;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature-cta:hover {
+            background-color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .feature-item, .feature-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .feature-image {
+                min-height: 200px;
+            }
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .testimonials {
+            background-color: var(--secondary-color);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .cta {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            text-align: center;
+            padding: 100px 0;
+        }
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: var(--text-color);
+            color: var(--background-color);
+            text-align: center;
+            padding: 20px 0;
+        }
+        .testimonials {
+            background-color: var(--secondary-color);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .testimonials h2 {
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .testimonial-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            scroll-snap-align: center;
+        }
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .testimonial-card span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .carousel-nav button {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-nav button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <h1 id="brand">Flard</h1>
-
     <div id="particles-js"></div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <h1 class="logo">Flard</h1>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#cta">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container"></div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Revolutionize Your Learning with Flard</h2>
+                <p>Create, organize, and master flashcards like never before</p>
+                <a href="./app.html" class="btn">Start Learning Now</a>
+            </div>
+        </section>
 
-    <button class="buttonSec"><i class="fa-solid fa-plus fa-2xl"></i></button>
-    <div class="design">
-        <button id="changeThemeButton"><i class="fa-solid fa-moon fa-2xl"></i></button>
-        <button class="theme st"></button>
-        <button class="theme nd"></button>
-        <button class="theme rd"></button>
-        <button class="theme th"></button>
-    </div>
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Powerful Features to Enhance Your Learning</h2>
+                <div class="feature-container">
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                            <h3>Create Custom Decks</h3>
+                            <p>Organize your flashcards into personalized decks for each subject or topic. Easily manage and review your content with our intuitive deck creation system.</p>
+                            <a href="#" class="feature-cta">Learn More</a>
+                        </div>
+                        <div class="feature-image" style="background-image: url('./img/decks.gif');"></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                            <h3>Multiple Themes</h3>
+                            <p>Customize your learning experience with various color schemes and layouts. Choose the perfect theme that suits your style and enhances your focus.</p>
+                            <a href="#" class="feature-cta">Explore Themes</a>
+                        </div>
+                        <div class="feature-image" style="background-image: url('./img/ezgif.com-animated-gif-maker.gif');"></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <div class="feature-icon"><i class="fas fa-edit"></i></div>
+                            <h3>Rich Text Editor</h3>
+                            <p>Enhance your flashcards with our built-in rich text editor. Format your content with bold, italics, lists, and more to create visually engaging study material tailored to your needs.</p>
+                            <a href="#" class="feature-cta">Try the Editor</a>
+                        </div>
+                        
+                        <div class="feature-image" style="background-image: url('./img/text.png');"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <button id="help"><a href="./guide.html" target="_blank"><i class="fa-solid fa-circle-info fa-2xl"></i></a></button>
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>What Our Users Say</h2>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1604177091072-b7b677a077f6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWFuJTIwc3R1ZGVudHxlbnwwfHwwfHx8MA%3D%3D" alt="Sarah J.">
+                        <p>"Flard has completely transformed the way I study. It's intuitive, efficient, and actually makes learning fun!"</p>
+                        <h4>salman K.</h4>
+                        <span>cs Student</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://static.frontendmasters.com/assets/teachers/theprimeagen/thumb.webp" alt="John D.">
+                        <p>"I've tried many flashcard apps, but Flard stands out with its user-friendly interface and powerful features. Highly recommended!"</p>
+                        <h4>ThePrimeagen Y.</h4>
+                        <span>youtuber</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://www.silicon.co.uk/wp-content/uploads/2012/06/linustorvaldslarge-684x479.jpg" alt="Emily R.">
+                        <p>"The progress tracking feature in Flard keeps me motivated and helps me focus on areas where I need improvement. It's a game-changer!"</p>
+                        <h4>Linus T.</h4>
+                        <span>software engineer</span>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
 
-    <script src="./app.js"></script>
-    <script src="./themes.js"></script>
-    <script src="./quillJS/quill.js"></script>
-    <script src="./particlesJS/particles.min.js"></script>
-    <script src="./dist/dialog-polyfill.js"></script>
+        <section id="cta" class="cta">
+            <div class="container">
+                <h2>Ready to Supercharge Your Learning?</h2>
+                <p>Join thousands of students who have already improved their study habits with Flard</p>
+                <a href="./app.html" class="btn">Get Started for Free</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Flard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Testimonial carousel navigation
+        const carousel = document.querySelector('.testimonial-carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -330, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 330, behavior: 'smooth' });
+        });
+        // Scroll animation for features
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function animateOnScroll() {
+            const featuresTitle = document.querySelector('.features h2');
+            const featureItems = document.querySelectorAll('.feature-item');
+
+            if (isElementInViewport(featuresTitle)) {
+                featuresTitle.classList.add('animate');
+            }
+
+            featureItems.forEach(item => {
+                if (isElementInViewport(item)) {
+                    item.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
 </body>
 </html>
